@@ -1,14 +1,24 @@
 import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
+import { CommonModule } from '@angular/common';
+import { CarrinhoComponent } from './carrinho/carrinho.component';
 
 @Component({
-  selector: 'app-root',
-  standalone: true,
-  imports: [CommonModule, RouterOutlet],
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+    selector: 'app-root',
+    standalone: true,
+    templateUrl: './app.component.html',
+    styleUrls: ['./app.component.css'],
+    imports: [RouterOutlet, CarrinhoComponent, CommonModule]
 })
 export class AppComponent {
-  title = 'hello-world';
+  title = 'Afrocódigos';
+
+  numero1 = 2;
+  numero2 = 5;
+
+  produto = this.numero1 * this.numero2;
+
+  logar() {
+    console.log(this.produto);
+  }
 }
