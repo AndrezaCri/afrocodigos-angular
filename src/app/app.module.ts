@@ -6,10 +6,14 @@ import { CarrinhoModule } from './carrinho/carrinho.module';
 import { ProdutosModule } from './produtos/produtos.module';
 
 @NgModule({
-    imports: [ BrowserModule, CarrinhoModule, ProdutosModule ],
+    imports: [ 
+      BrowserModule,
+      CarrinhoModule,
+      ProdutosModule
+    ],
     exports: [],
     declarations: [ 
-        AppComponent
+      AppComponent
     ],
     providers: [],
     bootstrap: [ AppComponent ]
