@@ -5,3 +5,22 @@
     <li>Mouse</li>
 </ul>
 
+
+<div [ngClass]="isSpecial ? 'special' : ''">
+    <p [ngStyle]="receptStyle ? { color: 'blue', 'font-size': '20px' } : {}">Curso de Angular do Afrocódigos</p>
+</div>
+
+<div *ngIf="showText === 1">
+    <p>Testando o *ngIf</p>
+</div>
+
+<div *ngIf="showText === 0">
+    <p>Não estou testando *ngIf</p>
+</div>
+
+<!-- Outra forma de fazer o controle de mostrar ou esconder via if -->
+@if (showText === 1) {
+    <div>
+        <p>Estou tentando Control Flow</p>
+    </div>
+  }

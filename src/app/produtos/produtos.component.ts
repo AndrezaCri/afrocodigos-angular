@@ -7,4 +7,9 @@ import { Component } from '@angular/core';
 })
 export class ProdutosComponent {
 
+  isSpecial = true;
+
+  receptStyle = true;
+
+  showText = 1;
 }
