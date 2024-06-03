@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-carrinho',
@@ -6,5 +6,8 @@ import { Component } from '@angular/core';
   styleUrl: './carrinho.component.css'
 })
 export class CarrinhoComponent {
+
+  @Input() mensagemDoCarrinho = 0;
+
   title = 'App de carrinho';
 }

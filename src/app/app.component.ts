@@ -8,7 +8,9 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'Afrocódigos';
 
-  numero1 = 2;
+  texto = 'mensagem alterada no app.component';
+
+  numero1 = 8;
   numero2 = 5;
 
   itemImageUrl = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTr0Zw_UTiwwQwcgGMIdau3VtuouudsNodG-8dQFdtWXw&s'

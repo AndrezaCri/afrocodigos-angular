@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 interface ProdutosCarrinho {
   id: number;
@@ -11,6 +11,8 @@ interface ProdutosCarrinho {
   styleUrl: './produtos.component.css'
 })
 export class ProdutosComponent {
+
+  @Input() mensagem = '';
 
   isSpecial = true;
 

@@ -15,9 +15,9 @@
     {{ name }}
 </div>
 
-<app-carrinho></app-carrinho>
+<app-carrinho [mensagemDoCarrinho]="numero1"></app-carrinho>
 
-<app-produtos></app-produtos>
+<app-produtos [mensagem]="texto"></app-produtos>
 
 <div>
     <img [alt]="textAlt" src="{{ itemImageUrl }}">
