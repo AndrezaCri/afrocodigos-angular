@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 interface ProdutosCarrinho {
   id: number;
@@ -13,6 +13,8 @@ interface ProdutosCarrinho {
 export class ProdutosComponent {
 
   @Input() mensagem = '';
+
+  @Output() mensagemDoFilhoParaOPai = new EventEmitter<string>();
 
   isSpecial = true;
 
@@ -31,9 +33,14 @@ export class ProdutosComponent {
     { id: 4, nome: 'Mousepad' }
   ];
 
+
   trackByItems(index: number, item: ProdutosCarrinho): number {
     return item.id;
   }
 
-  
+  emiteMensagemDoFilhoParaOPai() {
+    this.mensagemDoFilhoParaOPai.emit('Mensagem do produtos.component para o app.component');
+  }
+
+
 }

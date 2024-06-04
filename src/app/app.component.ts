@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
     selector: 'app-root',
@@ -9,6 +9,8 @@ export class AppComponent {
   title = 'Afrocódigos';
 
   texto = 'mensagem alterada no app.component';
+
+  mensagemDoFilho = '';
 
   numero1 = 8;
   numero2 = 5;
@@ -25,7 +27,16 @@ export class AppComponent {
 
   name = 'Afrocódigos';
 
-  logar() {
-    console.log(this.produto);
+  ngOnInit() {
+    this.logar();
   }
+
+  logar() {
+    console.log('Meu componente foi inicializado');
+  }
+
+  recebeMensagemDoComponenteFilho(mensagem: string) {
+    this.mensagemDoFilho = mensagem;
+  }
+
 }

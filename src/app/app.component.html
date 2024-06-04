@@ -1,9 +1,9 @@
-<h1 appHighlight>{{ title }}</h1>
+<h1 appHighlight>{{ title | lowercase }}</h1>
 
 <p>Este é o meu componete inicial</p>
 
 <!-- Interpolação: valores no TS são injetados no template -->
-<p>O produto de {{ numero1 }} e {{ numero2 }} é {{ produto }}</p>
+<p>O produto de {{ numero1 }} e {{ numero2 }} é {{ produto | currency }}</p>
 
 <button (click)="logar()" [disabled]="isUnchanged">Logar</button>
 
@@ -17,7 +17,9 @@
 
 <app-carrinho [mensagemDoCarrinho]="numero1"></app-carrinho>
 
-<app-produtos [mensagem]="texto"></app-produtos>
+<app-produtos [mensagem]="texto" (mensagemDoFilhoParaOPai)="recebeMensagemDoComponenteFilho($event)"></app-produtos>
+
+{{ mensagemDoFilho }}
 
 <div>
     <img [alt]="textAlt" src="{{ itemImageUrl }}">
