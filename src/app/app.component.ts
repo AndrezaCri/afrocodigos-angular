@@ -27,6 +27,8 @@ export class AppComponent {
 
   name = 'Afrocódigos';
 
+  birthday = new Date();
+
   ngOnInit() {
     this.logar();
   }

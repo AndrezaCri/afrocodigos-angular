@@ -2,6 +2,8 @@
 
 <p>Este é o meu componete inicial</p>
 
+<p>{{ birthday | date:'dd/MM/yyyy' }}</p>
+
 <!-- Interpolação: valores no TS são injetados no template -->
 <p>O produto de {{ numero1 }} e {{ numero2 }} é {{ produto | currency }}</p>
 
@@ -12,7 +14,7 @@
 
 <div>
     <input type="text" placeholder="name" [(ngModel)]="name"/>
-    {{ name }}
+    {{ name | greet }}
 </div>
 
 <app-carrinho [mensagemDoCarrinho]="numero1"></app-carrinho>

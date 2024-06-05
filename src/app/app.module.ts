@@ -6,6 +6,7 @@ import { CarrinhoModule } from './carrinho/carrinho.module';
 import { ProdutosModule } from './produtos/produtos.module';
 import { FormsModule } from '@angular/forms';
 import { HighlightDirective } from './highlight.directive';
+import { GreetPipe } from './greet.pipe';
 
 @NgModule({
     imports: [ 
@@ -17,7 +18,8 @@ import { HighlightDirective } from './highlight.directive';
     exports: [],
     declarations: [ 
       AppComponent,
-      HighlightDirective
+      HighlightDirective,
+      GreetPipe
     ],
     providers: [],
     bootstrap: [ AppComponent ]
