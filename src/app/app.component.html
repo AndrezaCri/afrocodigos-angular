@@ -9,12 +9,20 @@
 
 <button (click)="logar()" [disabled]="isUnchanged">Logar</button>
 
+<div>
+    <button (click)="clearSessionStorage()">Limpar storage</button>
+</div>
+
 <!-- create and set an aria attribute for assistive technology -->
 <button type="button" [attr.aria-label]="actionName">{{ actionName }} with Aria</button>
 
 <div>
     <input type="text" placeholder="name" [(ngModel)]="name"/>
     {{ name | greet }}
+</div>
+
+<div>
+    <button (click)="removeItemSessionStorage('angular')">Limpar item do storage</button>
 </div>
 
 <app-carrinho [mensagemDoCarrinho]="numero1"></app-carrinho>

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ItemService } from './item.service';
 
 @Component({
     selector: 'app-root',
@@ -6,6 +7,10 @@ import { Component, OnInit } from '@angular/core';
     styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
+  constructor(
+    private itemService: ItemService
+  ) {}
+
   title = 'Afrocódigos';
 
   texto = 'mensagem alterada no app.component';
@@ -31,6 +36,13 @@ export class AppComponent {
 
   ngOnInit() {
     this.logar();
+    this.saveItem('afrocodigos', 'curso de Angular');
+    this.itemService.setItemStorage('angular', 'aula de Service');
+
+   if (this.itemService.getItemStorage('angular')) {
+    this.name = this.itemService.getItemStorage('angular')!;
+   }
+
   }
 
   logar() {
@@ -39,6 +51,18 @@ export class AppComponent {
 
   recebeMensagemDoComponenteFilho(mensagem: string) {
     this.mensagemDoFilho = mensagem;
+  }
+
+  saveItem(key: string, value: string) {
+    this.itemService.setItemStorage(key, value);
+  }
+
+  clearSessionStorage() {
+    this.itemService.clearStorage();
+  }
+
+  removeItemSessionStorage(key: string) {
+    this.itemService.removeItemStorage(key);
   }
 
 }

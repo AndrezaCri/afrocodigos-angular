@@ -7,6 +7,7 @@ import { ProdutosModule } from './produtos/produtos.module';
 import { FormsModule } from '@angular/forms';
 import { HighlightDirective } from './highlight.directive';
 import { GreetPipe } from './greet.pipe';
+import { ItemService } from './item.service';
 
 @NgModule({
     imports: [ 
@@ -21,7 +22,9 @@ import { GreetPipe } from './greet.pipe';
       HighlightDirective,
       GreetPipe
     ],
-    providers: [],
+    providers: [
+      ItemService
+    ],
     bootstrap: [ AppComponent ]
 })
 export class AppModule { }
