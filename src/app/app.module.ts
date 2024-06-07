@@ -8,13 +8,16 @@ import { FormsModule } from '@angular/forms';
 import { HighlightDirective } from './highlight.directive';
 import { GreetPipe } from './greet.pipe';
 import { ItemService } from './item.service';
+import { DataService } from './data.service';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
     imports: [ 
       BrowserModule,
       CarrinhoModule,
       ProdutosModule,
-      FormsModule
+      FormsModule,
+      HttpClientModule
     ],
     exports: [],
     declarations: [ 
@@ -23,7 +26,8 @@ import { ItemService } from './item.service';
       GreetPipe
     ],
     providers: [
-      ItemService
+      ItemService,
+      DataService
     ],
     bootstrap: [ AppComponent ]
 })

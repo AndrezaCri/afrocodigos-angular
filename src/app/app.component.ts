@@ -1,5 +1,14 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { ItemService } from './item.service';
+import { DataService } from './data.service';
+import { HttpHeaders } from '@angular/common/http';
+
+interface ResponseAPI {
+  body: string;
+  id: number;
+  title: string;
+  userId: number;
+}
 
 @Component({
     selector: 'app-root',
@@ -8,7 +17,8 @@ import { ItemService } from './item.service';
 })
 export class AppComponent {
   constructor(
-    private itemService: ItemService
+    private itemService: ItemService,
+    private dataService: DataService
   ) {}
 
   title = 'Afrocódigos';
@@ -34,6 +44,8 @@ export class AppComponent {
 
   birthday = new Date();
 
+  titleResponse = '';
+
   ngOnInit() {
     this.logar();
     this.saveItem('afrocodigos', 'curso de Angular');
@@ -43,6 +55,8 @@ export class AppComponent {
     this.name = this.itemService.getItemStorage('angular')!;
    }
 
+   this.getData();
+   this.postData();
   }
 
   logar() {
@@ -63,6 +77,28 @@ export class AppComponent {
 
   removeItemSessionStorage(key: string) {
     this.itemService.removeItemStorage(key);
+  }
+
+  getData() {
+    this.dataService.get<ResponseAPI>('https://jsonplaceholder.typicode.com/posts/2')
+      .subscribe((response: ResponseAPI) => {
+        console.log('Resposta do GET', response);
+        this.titleResponse = response.title;
+      });
+  }
+
+  postData() {
+    const url = 'https://jsonplaceholder.typicode.com/posts';
+    const body = {
+      title: 'Título',
+      body: 'Body',
+      userId: 76,
+    };
+
+    this.dataService.post<ResponseAPI>(url, body)
+      .subscribe((res: ResponseAPI) => {
+        console.log('resposta do POST', res);
+      });
   }
 
 }
