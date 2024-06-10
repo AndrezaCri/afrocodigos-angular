@@ -46,6 +46,9 @@ export class AppComponent {
 
   titleResponse = '';
 
+  titleResponseArray = '';
+
+
   ngOnInit() {
     this.logar();
     this.saveItem('afrocodigos', 'curso de Angular');
@@ -55,8 +58,9 @@ export class AppComponent {
     this.name = this.itemService.getItemStorage('angular')!;
    }
 
-   this.getData();
-   this.postData();
+    this.getData();
+    this.getDataArray();
+    this.postData();
   }
 
   logar() {
@@ -80,11 +84,19 @@ export class AppComponent {
   }
 
   getData() {
-    this.dataService.get<ResponseAPI>('https://jsonplaceholder.typicode.com/posts/2')
+    this.dataService.get<ResponseAPI>('http://jsonplaceholder.typicode.com/posts/2')
       .subscribe((response: ResponseAPI) => {
-        console.log('Resposta do GET', response);
+        console.log('Resposta do GET Data', response);
         this.titleResponse = response.title;
       });
+  }
+
+  getDataArray(){
+    this.dataService.get<any>('http://localhost:3000/data')
+    .subscribe((response: any) => {
+      console.log('Resposta do GET', response);
+      this.titleResponseArray = response[0].title;
+    });
   }
 
   postData() {
@@ -100,5 +112,7 @@ export class AppComponent {
         console.log('resposta do POST', res);
       });
   }
+
+
 
 }
