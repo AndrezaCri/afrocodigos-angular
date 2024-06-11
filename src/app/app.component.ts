@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { ItemService } from './item.service';
 import { DataService } from './data.service';
-import { HttpHeaders } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 interface ResponseAPI {
   body: string;
@@ -18,7 +18,8 @@ interface ResponseAPI {
 export class AppComponent {
   constructor(
     private itemService: ItemService,
-    private dataService: DataService
+    private dataService: DataService,
+    private router: Router
   ) {}
 
   title = 'Afrocódigos';
@@ -111,6 +112,10 @@ export class AppComponent {
       .subscribe((res: ResponseAPI) => {
         console.log('resposta do POST', res);
       });
+  }
+
+  irParaCarrinho() {
+    this.router.navigate(['/carrinho']);
   }
 
 

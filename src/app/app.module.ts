@@ -10,6 +10,7 @@ import { GreetPipe } from './greet.pipe';
 import { ItemService } from './item.service';
 import { DataService } from './data.service';
 import { HttpClientModule } from '@angular/common/http';
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
     imports: [ 
@@ -17,7 +18,8 @@ import { HttpClientModule } from '@angular/common/http';
       CarrinhoModule,
       ProdutosModule,
       FormsModule,
-      HttpClientModule
+      HttpClientModule,
+      AppRoutingModule
     ],
     exports: [],
     declarations: [ 

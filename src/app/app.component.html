@@ -1,5 +1,10 @@
 <h1 appHighlight>{{ title | lowercase }}</h1>
 
+<nav>
+  <a routerLink="/carrinho" routerLinkActive="active">Carrinho</a>
+  <a routerLink="/produtos" routerLinkActive="active">Produtos</a>
+</nav>
+
 <p>Este é o meu componete inicial</p>
 
 <p>{{ birthday | date:'dd/MM/yyyy' }}</p>
@@ -29,9 +34,9 @@
     <button (click)="removeItemSessionStorage('angular')">Limpar item do storage</button>
 </div>
 
-<app-carrinho [mensagemDoCarrinho]="numero1"></app-carrinho>
+<!-- <app-carrinho [mensagemDoCarrinho]="numero1"></app-carrinho> -->
 
-<app-produtos [mensagem]="texto" (mensagemDoFilhoParaOPai)="recebeMensagemDoComponenteFilho($event)"></app-produtos>
+<!-- <app-produtos [mensagem]="texto" (mensagemDoFilhoParaOPai)="recebeMensagemDoComponenteFilho($event)"></app-produtos> -->
 
 {{ mensagemDoFilho }}
 
@@ -43,3 +48,5 @@
 <div>
     <img [alt]="textAlt" [src]="itemImageUrl">
 </div>
+
+<router-outlet></router-outlet>
